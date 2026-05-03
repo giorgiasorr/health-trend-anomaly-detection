@@ -17,6 +17,17 @@ The project also considers the limitations and ethical implications of using new
 - Visualize temporal dynamics of health-related news coverage
 
 
+## Key Features
+
+- End-to-end NLP pipeline on real-world global news data
+- Integration of:
+  - Time-series analysis
+  - Topic modeling (LDA)
+  - Statistical anomaly detection
+- Fully reproducible pipeline with modular scripts and notebooks
+- Interpretable outputs for exploratory and research analysis
+
+
 ## Methods & Techniques
 
 ### Data Processing
@@ -40,20 +51,50 @@ The project also considers the limitations and ethical implications of using new
 - Comparison of anomaly vs normal topic distributions
 
 
-## Key Insights
+## Results and Discussion
+
+### Key Findings
 
 - The dataset contains 681 articles collected over a ~3-week period
 - News volume shows **sharp event-driven spikes**, particularly around specific dates
 - A major anomaly is detected on **January 1st, 2026**, accounting for ~65% of total articles
 
-### Topic modeling findings:
+#### Topic modeling Findings
 - A clear **antibiotic resistance / AMR health cluster** is identified
 - Multiple **mixed geopolitical + health-related topics** emerge
 - Several noisy multilingual and global event-driven clusters are present due to keyword ambiguity
 
-### Temporal and anomaly interpretation:
+#### Temporal and anomaly Interpretation
 - Anomalies are not always health-specific, highlighting the challenge of semantic filtering in global news streams
 - Topic activity spikes are **system-wide rather than topic-specific**, indicating broad increases in news reporting rather than isolated thematic events
+
+### Visualizations
+
+#### News Volume Over Time
+Daily global health-related article counts over time.
+
+![Daily Trend](outputs/plots/daily_trend.png)
+
+---
+
+#### Anomaly Detection
+Detected spike in news activity using statistical z-score method.
+
+![Anomalies](outputs/plots/anomalies.png)
+
+---
+
+#### Topic Distribution
+Distribution of LDA-derived topics across the dataset.
+
+![Topic Distribution](outputs/plots/topic_distribution.png)
+
+---
+
+#### Topic Evolution Over Time
+Temporal dynamics of topic prevalence and spikes.
+
+![Topic Evolution](outputs/plots/topic_evolution.png)
 
 
 ## Project Structure
@@ -85,6 +126,21 @@ health-trend-anomaly-detection/
 ```
 
 
+### Reproducibility
+
+The full pipeline can be reproduced by running the scripts in `src/` in order:
+
+```bash
+python src/data_collection.py
+python src/preprocessing.py
+python src/topic_modeling.py
+python src/feature_engineering.py
+python src/anomaly_detection.py
+```
+
+All outputs (plots, models, and processed data) are generated automatically from these steps.
+
+
 ## How to Run the Project
 
 ### 1. Install dependencies
@@ -114,56 +170,14 @@ This notebook:
 - Performs final interpretation
 
 
-## Example Outputs
+## Models
 
-### News Volume Over Time
-- Daily global health-related article counts
+The `models/` directory contains serialized models:
 
-### Topic Distribution
-- LDA-derived thematic clusters across news corpus
+- `lda_model.pkl`: trained LDA topic model
+- `vectorizer.pkl`: TF-IDF vectorizer
 
-### Anomaly Detection
-- Statistical identification of unusual spikes in news activity
-
-### Topic Evolution
-- How themes change over time and during anomalies
-
-
-## Visual Examples
-
-### Daily News Volume
-Shows the evolution of global health-related article counts over time.
-
-![Daily Trend](outputs/plots/daily_trend.png)
-
-
-### Anomaly Detection
-Detected spike in news activity using statistical methods (z-score).
-
-![Anomalies](outputs/plots/anomalies.png)
-
-
-### Topic Distribution
-Distribution of LDA-derived topics across the dataset.
-
-![Topic Distribution](outputs/plots/topic_distribution.png)
-
-
-### Topic Evolution Over Time
-How different topics evolve and spike across time.
-
-![Topic Evolution](outputs/plots/topic_evolution.png)
-
-
-## Key Features
-
-- End-to-end NLP pipeline on real-world global news data
-- Combination of:
-  - Time-series analysis
-  - Unsupervised topic modeling
-  - Statistical anomaly detection
-- Fully reproducible workflow (scripts + notebook separation)
-- Interpretable outputs for exploratory analysis
+These are saved using joblib for reproducibility.
 
 
 ## Limitations
@@ -211,22 +225,13 @@ This project highlights the importance of combining computational methods with c
   https://www.gdeltproject.org/
 
 
-## Data
+## Dataset
 
-This repository includes a small, pre-collected sample of GDELT news data (~179 KB) for reproducibility and ease of use.
+This repository includes a small sample of GDELT news data (~179 KB) for reproducibility and experimentation. 
 
 - Raw data: `data/raw/`
 - Processed data: `data/processed/`
-
-
-### Reproducibility
-
-The full data pipeline can be reproduced by running:
-
-```bash
-python src/data_collection.py
-python src/preprocessing.py
-```
+- Feature data: `data/features/`
 
 ## Author
 
