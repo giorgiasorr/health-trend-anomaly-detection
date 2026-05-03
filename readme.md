@@ -1,10 +1,12 @@
 # Early Detection of Health Signals in Global News Streams Using Topic Modeling and Time-Series Anomaly Detection
 
-This project analyzes a curated sample of global news data from the **GDELT project** to identify health-related trends, detect unusual spikes in reporting activity, and extract latent thematic structures using topic modeling.
+This project analyzes a sample of global news data from the **GDELT project** to identify health-related trends, detect unusual spikes in reporting activity, and extract latent thematic structures using topic modeling.
 
 It explores how global news streams can be used as a retrospective proxy for public health-related signals, combining NLP and time-series analysis to detect emerging patterns in news coverage.
 
 The project also considers the limitations and ethical implications of using news data for public health signal detection.
+
+A full LaTeX-based research report is included in the `report/` directory, providing a detailed description of the methodology, experimental design, results, and discussion.
 
 
 ## Project Objectives
@@ -121,6 +123,9 @@ health-trend-anomaly-detection/
 ├── notebooks/
 │   └── analysis.ipynb       # Final analysis & interpretation
 │
+├── report/
+│   └── early_detection_health_signals_news_report.pdf   # LaTeX research report
+│
 ├── requirements.txt
 └── README.md
 ```
@@ -227,7 +232,7 @@ This project highlights the importance of combining computational methods with c
 
 ## Dataset
 
-This repository includes a small sample of GDELT news data (~179 KB) for reproducibility and experimentation. 
+This repository includes a keyword-filtered dataset of 681 articles global news articles (~179 KB of text data) collected via the GDELT API for reproducibility and experimentation. 
 
 - Raw data: `data/raw/`
 - Processed data: `data/processed/`
