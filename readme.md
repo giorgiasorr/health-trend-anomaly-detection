@@ -242,12 +242,3 @@ This repository includes a keyword-filtered dataset of 681 articles global news 
 
 **Giorgia Sorrentino**
 MSc Computational Linguistics 
-
-Interests:
-- Natural Language Processing (NLP)
-- Data Science & Time-Series Analysis
-- Real-world language technology applications
-
-Links:
-- LinkedIn: https://www.linkedin.com/in/giorgia-sorrentino 
-- GitHub: https://github.com/giorgiasorr
